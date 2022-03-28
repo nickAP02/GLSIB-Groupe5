@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Enregistrer catégorie</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire d'enregistrement</h2>
+    <form class="row g-3" th:action="@{/category/save}" method="post">
+
+        <div class="col-6">
+            <label class="form-label">Désignation</label>
+            <input type="text" class="form-control" name="designation">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </form>
+</div>
+<script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Produits</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Liste des produits</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Stock
+            <th scope="col">Date de création</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "item : ${produits}">
+            <th th:text="${item.id}" scope="row"></th>
+            <th th:text="${item.libelle}" scope="row"></th>
+            <th th:text="${item.qteSeuil}" scope="row"></th>
+            <th th:text="${item.qteStock}" scope="row"></th>
+            <th th:text="${item.dateCreation}" scope="row"></th>
+            <th th:text="${item.prix}" scope="row"></th>
+            <td>
+                <a th:href="@{/produit/edit/{id}(id=${item.id})}">Modifier |</a>
+                <a th:href="@{/produit/delete/{id}(id=${item.id})}">Supprimer</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
