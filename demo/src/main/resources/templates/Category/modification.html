@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Modifier catégorie</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
 </head>
 <body>
-
+<div class="container">
+    <h2>Formulaire de mise à jour</h2>
+    <form class="row g-3" th:action="@{/category/edit}" th:object="${categoryId}" method="post">
+        <div class="col-md-6">
+            <input class="form-control" th:field="*{id}" type="hidden">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Désignation</label>
+            <input type="text" class="form-control"  th:field="*{designation}">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </form>
+</div>
+<script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
