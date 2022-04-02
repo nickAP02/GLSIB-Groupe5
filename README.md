@@ -1,5 +1,5 @@
 # springboot-project
-Product management with spring MVC
+Product management with spring MVC,spring Data
 Users management with JPA Security
 RDBMS MySQL
 Dependencies used :
