@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>Produits</title>
     <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href = "@{/css/all.css}">
 </head>
 <body>
 <div class="container">
     <h1>Liste des produits</h1>
-    <table class="table table-striped table-hover">
+    <table class="table">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -30,9 +29,8 @@
             <th th:text="${item.dateCreation}" scope="row"></th>
             <th th:text="${item.prix}" scope="row"></th>
             <td>
-                <button class="btn btn-secondary"><a th:href="@{/produit/edit/{id}(id=${item.id})}" class="fas fa-edit"></a></button>
-                <button class="btn btn-danger"><a th:href="@{/produit/delete/{id}(id=${item.id})}" class="fas fa-trash"></a></button>
-                <button class="btn btn-primary"><a th:href="@{/appro/edit/{id}(id=${item.id})}" class="fas fa-store"></a></button>
+                <a th:href="@{/produit/edit/{id}(id=${item.id})}">Modifier |</a>
+                <a th:href="@{/produit/delete/{id}(id=${item.id})}">Supprimer</a>
             </td>
         </tr>
 
@@ -40,6 +38,5 @@
     </table>
 </div>
 <script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-<script rel="script" th:src="@{/js/all.js}"></script>
 </body>
 </html>

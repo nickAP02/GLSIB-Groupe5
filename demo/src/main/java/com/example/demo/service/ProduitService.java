@@ -36,4 +36,8 @@ public class ProduitService {
         if(showOneProduit(id)!=null)
             produitRepository.deleteById(id);
     }
+    /*public void updateQteStock(int id, int qte)
+    {
+        produitRepository.UpdateQteProduit(id,qte);
+    }*/
 }
