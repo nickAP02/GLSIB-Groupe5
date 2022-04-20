@@ -10,19 +10,19 @@
     <h2>Formulaire de suppression</h2>
     <form class="row g-3" th:action="@{/produit/delete}" th:object="${produitId}" method="post">
         <div class="col-md-6">
-            <input type="text" class="form-control" id="id" th:field="*{id}" type="hidden">
+            <input type="text" class="form-control" th:field="*{id}" type="hidden">
         </div>
         <div class="col-md-6">
             <label for="libelle" class="form-label">Libelle</label>
-            <input type="text" class="form-control" id="libelle" th:field="*{libelle}">
+            <input type="text" class="form-control" id="libelle" th:field="*{produit.libelle}">
         </div>
         <div class="col-6">
-            <label for="seuil" class="form-label">Quantité seuil</label>
-            <input type="number" class="form-control" id="seuil" min="1"  th:field="*{qteSeuil}">
+            <label for="seuil" class="form-label">Quantité</label>
+            <input type="number" class="form-control" id="seuil" min="1"  th:field="*{quantite}">
         </div>
         <div class="mb-3">
             <label for="prix" class="form-label">Prix</label>
-            <input type="number" class="form-control" id="prix" th:field="*{prix}">
+            <input type="number" class="form-control" id="prix" th:field="*{produit.prix}">
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Valider</button>

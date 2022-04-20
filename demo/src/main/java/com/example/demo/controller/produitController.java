@@ -1,16 +1,14 @@
 package com.example.demo.controller;
-
 import com.example.demo.model.Produit;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
-@Controller
+@RestController
 @RequestMapping("/produit")
 public class produitController {
     @Autowired
@@ -49,5 +47,10 @@ public class produitController {
     public String delete(@PathVariable("id") int id, Model model){
         model.addAttribute("produitId",produitService.showOneProduit(id));
         return "Produits/suppression";
+    }
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute("produitId") int id){
+        produitService.deleteProduit(id);
+        return "redirect:/produit/afficher";
     }
 }

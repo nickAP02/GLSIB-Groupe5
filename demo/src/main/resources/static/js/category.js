@@ -1,4 +1,5 @@
 const element = document.querySelector(".trigger-swal");
+var id = document.getElementById("#valDel");
 element.addEventListener("click", function message() {
   Swal.fire({
     title: 'Voulez-vous supprimer cette catégorie ?',
@@ -11,25 +12,9 @@ element.addEventListener("click", function message() {
     },
     loaderHtml: '<div class="spinner-border text-primary"></div>',
     preConfirm: () => {
-      Swal.showLoading()
+      Swal.showLoading();
       return new Promise((resolve) => {
-      $.ajax({
-          var id = $(this).attr('id');
-          var parent = $(this).parent().parent();
-          type: "POST",
-          url: "http://localhost:8080/category/delete/" + id,
-          cache: false,
-          success: function() {
-              parent.fadeOut('slow', function() {
-                  $(this).remove();
-              });
-              location.reload(true)
-          },
-          error: function() {
-              $('#err').html('<span style=\'color:red; font-weight: bold; font-size: 30px;\'>Error deleting record').fadeIn().fadeOut(4000, function() {
-                  $(this).remove();
-              });
-          }
+        '/category/delete/'+id
         });
         ))
     }

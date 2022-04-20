@@ -25,8 +25,8 @@
             <th th:text="${category.id}" scope="row"></th>
             <th th:text="${category.designation}" scope="row"></th>
                 <td>
-                    <button class="btn btn-secondary"><a th:href="@{/category/edit/{id}(id=${category.id})}" class="fas fa-edit"></a></button>
-                    <button class="btn btn-danger trigger-swal" id="${category.id}"><a class="fas fa-trash"></a></button>
+                    <a th:href="@{/category/edit/{id}(id=${category.id})}" class="btn btn-secondary"></a>
+                    <a th:href="@{/category/delete/{id}(id=${category.id})}" class="btn btn-danger"></a>
                 </td>
         </tr>
         </tbody>
