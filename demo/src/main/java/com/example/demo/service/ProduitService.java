@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.Produit;
 import com.example.demo.model.repository.ProduitRepository;
+import com.example.demo.model.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ public class ProduitService {
 
     @Autowired
     private ProduitRepository produitRepository;
+    private UtilisateurRepository utilisateurRepository;
     public void saveProduit(Produit produit){
         produitRepository.save(produit);
     }
@@ -40,4 +42,9 @@ public class ProduitService {
     {
         produitRepository.UpdateQteProduit(id,qte);
     }
+
+    public List<Produit> findByKeyword(String keyword){
+        return produitRepository.findByKeyword(keyword);
+    }
+
 }

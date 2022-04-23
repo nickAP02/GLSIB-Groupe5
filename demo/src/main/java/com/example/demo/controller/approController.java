@@ -2,9 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Approvisionnement;
 import com.example.demo.model.Produit;
+import com.example.demo.model.repository.UtilisateurRepository;
 import com.example.demo.service.ApproService;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProduitService;
+import com.example.demo.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +14,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
-@RestController
+@Controller
 @RequestMapping("/appro")
 public class approController {
     @Autowired
     private ApproService approService;
     @Autowired
     private ProduitService produitService;
+    @Autowired
+    UtilisateurService utilisateurService;
     @GetMapping("/afficher")
     public String displayAppro(Model model){
         model.addAttribute("appro",approService.showAllAppro());

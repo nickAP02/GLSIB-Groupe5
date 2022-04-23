@@ -1,18 +1,24 @@
 package com.example.demo.controller;
 import com.example.demo.model.Produit;
+import com.example.demo.model.repository.ProduitRepository;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/produit")
 public class produitController {
     @Autowired
     private ProduitService produitService;
+    @Autowired
+    private ProduitRepository produitRepository;
     @Autowired
     private CategoryService categoryService;
     @GetMapping("/afficher")
@@ -52,5 +58,13 @@ public class produitController {
     public String delete(@ModelAttribute("produitId") int id){
         produitService.deleteProduit(id);
         return "redirect:/produit/afficher";
+    }
+    @GetMapping("/search")
+    public String recherche(@RequestParam("keyword") String libelle, Model model){
+        List<Produit> produitList = produitService.findByKeyword(libelle);
+        model.addAttribute("search",produitList);
+        System.out.println(libelle);
+        return "Produits/search";
+
     }
 }

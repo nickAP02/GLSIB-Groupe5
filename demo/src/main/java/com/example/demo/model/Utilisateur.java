@@ -3,9 +3,10 @@ package com.example.demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.jni.Address;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -17,11 +18,10 @@ public class Utilisateur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    private String nom;
-    private String prenom;
+    private String username;
     private String password;
-    private String adresse;
-    private String telephone;
+    private String email;
+    private LocalDate dateCrea;
     @ManyToOne
     @JoinColumn(name = "role_id",insertable = false,updatable = false)
     private Role role;
@@ -29,55 +29,45 @@ public class Utilisateur {
         return id;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getAddresse() {
-        return adresse;
+    public Role getRole() {
+        return role;
     }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public String getRole() {
-        return role.getRole();
-    }
-
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setAddresse(String address) {
-        this.adresse = address;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
     public void setRole(Role role) {
         this.role = role;
+    }
+    public LocalDate getDateCrea() {
+        return dateCrea;
+    }
+
+    public void setDateCrea(LocalDate dateCrea) {
+        this.dateCrea = dateCrea;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
