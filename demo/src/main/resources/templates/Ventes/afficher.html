@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Select</th>
+        <th scope="col">Code</th>
+        <th scope="col">Date</th>
+        <th scope="col">Client</th>
+        <th scope="col">Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${Vente}" >
+        <th th:text="${item.codeVente}" scope="row"></th>
+        <th th:text="${item.dateVente}" scope="row"></th>
+    </tr>
+    <tr th:each="item : ${Client}" >
+        <th th:text="${item.nom}" scope="row"></th>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

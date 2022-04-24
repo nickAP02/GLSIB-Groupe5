@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Produit;
-import com.example.demo.model.repository.ProduitRepository;
+import com.example.demo.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +17,12 @@ public class ProduitService {
         produitRepository.save(produit);
     }
 
-    public List<Produit> showProduits(){
+    public List<Produit> showProduits()
+    {
        return produitRepository.findAll();
     }
-    public Produit showOneProduit(int id){
+    public Produit showOneProduit(int id)
+    {
         Optional<Produit> optional = produitRepository.findById(id);
         Produit produit = null;
         if(optional.isPresent()){
@@ -31,9 +33,14 @@ public class ProduitService {
         }
         return produit;
     }
+
     public void deleteProduit(int id)
     {
         if(showOneProduit(id)!=null)
             produitRepository.deleteById(id);
     }
+    /*public void updateQteStock(int id, int qte)
+    {
+        produitRepository.UpdateQteProduit(id,qte);
+    }*/
 }

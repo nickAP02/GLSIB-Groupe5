@@ -15,6 +15,7 @@ import java.time.LocalDate;
 public class produitController {
     @Autowired
     private ProduitService produitService;
+    @Autowired
     private CategoryService categoryService;
     @GetMapping("/afficher")
     public String displayProduit(Model model){
@@ -49,8 +50,4 @@ public class produitController {
         model.addAttribute("produitId",produitService.showOneProduit(id));
         return "Produits/suppression";
     }
-   /* @PostMapping("/delete")
-    {
-
-    }*/
 }
