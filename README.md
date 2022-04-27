@@ -8,3 +8,7 @@ Dependencies used :
 - MySQL connector
 - Sweetalert2
 - Bootstrap5
+- Membres du groupes :
+- YERIMA 
+- GAVI
+- APAFLO
