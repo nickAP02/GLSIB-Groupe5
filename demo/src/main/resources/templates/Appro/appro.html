@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h2>Formulaire d'enregistrement</h2>
-    <form class="row" th:object="${produitId}" th:action="@{/appro/save}" method="post">
+    <form class="row" th:object="${produit}" th:action="@{/appro/save}" method="post">
         <div class="mb-3">
             <input class="form-control" name="produit_id" th:value="${produit.id}" type="hidden">
         </div>

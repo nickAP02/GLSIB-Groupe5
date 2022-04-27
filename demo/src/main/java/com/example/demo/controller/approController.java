@@ -35,13 +35,19 @@ public class approController {
     }
     @PostMapping("/save")
     public String save(Approvisionnement appro){
+        appro.setDateAppro(LocalDate.now());
         approService.save(appro);
         produitService.updateQteStock(appro.getProduit_id(),appro.getQuantite());
-        return "redirect:/produit/afficher";
+        return "redirect:/appro/afficher";
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id, Model model){
-        model.addAttribute("produitId",produitService.showOneProduit(id));
+        model.addAttribute("produitId",approService.showOneProductAppro(id));
         return "Appro/suppression";
+    }
+    @PostMapping("/delete")
+    public String delete(@ModelAttribute("produitId") int id){
+        approService.delete(id);
+        return "redirect:/appro/afficher";
     }
 }

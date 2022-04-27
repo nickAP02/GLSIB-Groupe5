@@ -26,6 +26,11 @@ public class produitController {
         model.addAttribute("produits",produitService.showProduits());
         return "Produits/showProduit";
     }
+    @GetMapping("/seuil")
+    public String displaySeuil(Model model){
+        model.addAttribute("seuil",produitService.showSeuil());
+        return "Produits/seuil";
+    }
     @GetMapping("/form")
     public String form(Model model){
         model.addAttribute("Listcategory",categoryService.showAllCategory());
@@ -65,6 +70,5 @@ public class produitController {
         model.addAttribute("search",produitList);
         System.out.println(libelle);
         return "Produits/search";
-
     }
 }

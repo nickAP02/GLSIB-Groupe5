@@ -21,6 +21,55 @@ public class Produit {
     private int qteStock;
     private int qteSeuil;
     private float prix;
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public int getQteStock() {
+        return qteStock;
+    }
+
+    public void setQteStock(int qteStock) {
+        this.qteStock = qteStock;
+    }
+
+    public int getQteSeuil() {
+        return qteSeuil;
+    }
+
+    public void setQteSeuil(int qteSeuil) {
+        this.qteSeuil = qteSeuil;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     private LocalDate dateCreation;
     public Integer getId() {
         return id;

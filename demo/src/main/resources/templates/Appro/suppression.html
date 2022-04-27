@@ -8,9 +8,9 @@
 <body>
 <div class="container">
     <h2>Formulaire de suppression</h2>
-    <form class="row g-3" th:action="@{/produit/delete}" th:object="${produitId}" method="post">
+    <form class="row g-3" th:action="@{/appro/delete}" th:object="${produitId}" method="post">
         <div class="col-md-6">
-            <input type="text" class="form-control" th:field="*{id}" type="hidden">
+            <input class="form-control" th:field="*{id}" type="hidden">
         </div>
         <div class="col-md-6">
             <label for="libelle" class="form-label">Libelle</label>

@@ -17,4 +17,8 @@ public class UtilisateurService {
     {
         return utilisateurRepository.getUserByUsername(username);
     }
+    public Utilisateur getUserById(int id)
+    {
+      return utilisateurRepository.getUserById(id);
+    }
 }

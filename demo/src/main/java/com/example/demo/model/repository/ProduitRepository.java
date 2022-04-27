@@ -17,6 +17,8 @@ public interface ProduitRepository extends JpaRepository<Produit,Integer> {
     @Modifying
     @Query("update Produit p set p.qteStock = p.qteStock + :qte where p.id = :id")
     void UpdateQteProduit(@Param("id") int id, @Param("qte") int qte);
+    @Query(value = "select * from produits p where p.qte_stock > p.qte_seuil",nativeQuery = true)
+    List<Produit> showUnderSeuil();
     @Query(value = "SELECT * from Produits where libelle like %:keyword%",nativeQuery = true)
     List<Produit> findByKeyword(@Param("keyword") String keyword);
 

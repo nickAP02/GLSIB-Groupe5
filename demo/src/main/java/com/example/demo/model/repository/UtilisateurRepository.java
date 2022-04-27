@@ -14,9 +14,13 @@ import java.util.Optional;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur,Integer> {
     @Transactional
-    @Query("SELECT id from Utilisateur u WHERE u.username =:username")
+    @Query(value = "SELECT * from users u WHERE u.username =:username",nativeQuery = true)
      Utilisateur getUserByUsername(String username);
     @Transactional
-    @Query("SELECT id from Utilisateur")
-    int getUserById(int id);
+    @Query(value = "SELECT id from users id =:id",nativeQuery = true)
+    Utilisateur getUserById(int id);
+    @Query(value = "SELECT email from users where email =:email",nativeQuery = true)
+    Utilisateur getUserByEmail(String email);
+    @Query(value = "SELECT * from users where username = :username and password = :password",nativeQuery = true)
+    List<Utilisateur> getUser(String username,String password);
 }

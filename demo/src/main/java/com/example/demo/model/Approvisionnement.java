@@ -23,8 +23,4 @@ public class Approvisionnement {
     @JoinColumn(name = "produit_id",insertable = false,updatable = false)
     private Produit produit;
     private int produit_id;
-    @ManyToOne
-    @JoinColumn(name = "user_id",insertable = false,updatable = false)
-    private Utilisateur utilisateur;
-    private int user_id;
 }

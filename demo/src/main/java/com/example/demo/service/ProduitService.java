@@ -14,6 +14,7 @@ public class ProduitService {
 
     @Autowired
     private ProduitRepository produitRepository;
+    @Autowired
     private UtilisateurRepository utilisateurRepository;
     public void saveProduit(Produit produit){
         produitRepository.save(produit);
@@ -37,6 +38,9 @@ public class ProduitService {
     {
         if(showOneProduit(id)!=null)
             produitRepository.deleteById(id);
+    }
+    public List<Produit> showSeuil(){
+        return produitRepository.showUnderSeuil();
     }
     public void updateQteStock(int id, int qte)
     {

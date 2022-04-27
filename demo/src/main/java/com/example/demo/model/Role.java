@@ -21,4 +21,12 @@ public class Role {
     public String getRole() {
         return roleName;
     }
+
+    public void setRole(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public Role(String role){
+        this.roleName = role;
+    }
 }
