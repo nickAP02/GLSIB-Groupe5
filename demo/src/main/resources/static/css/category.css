@@ -1,0 +1,7 @@
+a{
+    text-decoration : none;
+}
+.custom-loader {
+  animation: none !important;
+  border-width: 0 !important;
+}

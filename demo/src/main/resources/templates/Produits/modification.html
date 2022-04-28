@@ -8,11 +8,11 @@
 <body>
 <div class="container">
     <h2>Formulaire de mise à jour</h2>
-    <form class="row g-3" th:action="@{/produit/edit}" th:object="${produitId}" method="post">
+    <form class="" th:action="@{/produit/edit}" th:object="${produitId}" method="post">
         <div class="col-md-6">
             <input class="form-control" th:field="*{id}" type="hidden">
         </div>
-        <div class="col-md-6">
+        <div class="col-6">
             <label for="libelle" class="form-label">Libelle</label>
             <input type="text" class="form-control" id="libelle" th:field="*{libelle}">
         </div>
@@ -20,13 +20,13 @@
             <label for="seuil" class="form-label">Quantité seuil</label>
             <input type="number" class="form-control" id="seuil" min="1"  th:field="*{qteSeuil}">
         </div>
-        <div class="mb-3">
+        <div class="col-6">
             <label for="prix" class="form-label">Prix</label>
             <input type="number" class="form-control" id="prix" th:field="*{prix}">
         </div>
         <div class="mb-3">
-            <input type="number" class="form-control" id="qteStock" type="hidden" th:field="*{qteStock}">
-            <input type="date" class="form-control" id="dateCreation"  type="hidden" th:field="*{dateCreation}">
+            <input class="form-control" id="qteStock" type="hidden" th:field="*{qteStock}">
+            <input  class="form-control" id="dateCreation"  type="hidden" th:field="*{dateCreation}">
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary">Valider</button>

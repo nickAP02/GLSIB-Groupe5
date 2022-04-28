@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Supprimer produit</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire de suppression</h2>
+    <form class="row g-3" th:action="@{/appro/delete}" th:object="${produitId}" method="post">
+        <div class="col-md-6">
+            <input class="form-control" th:field="*{id}" type="hidden">
+        </div>
+        <div class="col-md-6">
+            <label for="libelle" class="form-label">Libelle</label>
+            <input type="text" class="form-control" id="libelle" th:field="*{produit.libelle}">
+        </div>
+        <div class="col-6">
+            <label for="seuil" class="form-label">Quantité</label>
+            <input type="number" class="form-control" id="seuil" min="1"  th:field="*{quantite}">
+        </div>
+        <div class="mb-3">
+            <label for="prix" class="form-label">Prix</label>
+            <input type="number" class="form-control" id="prix" th:field="*{produit.prix}">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </form>
+</div>
+<script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Approvisionnement produit</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Formulaire d'enregistrement</h2>
+    <form class="row" th:object="${produit}" th:action="@{/appro/save}" method="post">
+        <div class="mb-3">
+            <input class="form-control" name="produit_id" th:value="${produit.id}" type="hidden">
+        </div>
+      <div class="mb-3">
+        <label class="form-label">Produit</label>
+        <input type="text" class="form-control" th:value="${produit.libelle}" readonly>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Quantité</label>
+        <input type="number" class="form-control" min="1" name="quantite">
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </div>
+    </form>
+</div>
+<script rel="script" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

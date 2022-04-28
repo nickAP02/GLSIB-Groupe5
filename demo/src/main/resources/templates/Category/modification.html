@@ -8,11 +8,11 @@
 <body>
 <div class="container">
     <h2>Formulaire de mise à jour</h2>
-    <form class="row g-3" th:action="@{/category/edit}" th:object="${categoryId}" method="post">
+    <form class="col-6" th:action="@{/category/edit}" th:object="${categoryId}" method="post">
         <div class="col-md-6">
             <input class="form-control" th:field="*{id}" type="hidden">
         </div>
-        <div class="mb-3">
+        <div class="col-6">
             <label class="form-label">Désignation</label>
             <input type="text" class="form-control"  th:field="*{designation}">
         </div>
